@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<title>Shashidar vemula</title>
+    <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+      <?php
+if(!empty($_POST["send"])) {
+	$name = $_POST["userName"];
+	$email = $_POST["userEmail"];
+	$content = $_POST["content"];
+
+        $link = mysqli_connect("sql205.epizy.com", "epiz_29072101", "3SwWRHv2EV", "epiz_29072101_profile");
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+ 
+// Attempt insert query execution
+$sql = "INSERT INTO contact (user_name,user_email,content) VALUES ('" . $name. "', '" . $email. "','" . $content. "')";
+if(mysqli_query($link, $sql)){
+   $message = "Your contact information is saved successfully";
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
+ 
+// Close connection
+mysqli_close($link);
+}
+?>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script src="lib/js/bootstrap.min.js"></script>
+
+        <link rel=¨stylesheet¨ type=¨text/css¨ href="css/style.css">
+       <script type="text/javascript">
+          function validateContactForm() {
+              var valid = true;
+              $(".info").html("");
+              $(".input-field").css('border', '#e0dfdf 1px solid');
+              var userName = $("#userName").val();
+              var userEmail = $("#userEmail").val();
+              var content = $("#content").val();
+              
+              if (userName == "") {
+                  $("#userName-info").html("Required.");
+                  $("#userName").css('border', '#e66262 1px solid');
+                  valid = false;
+              }
+              if (userEmail == "") {
+                  $("#userEmail-info").html("Required.");
+                  $("#userEmail").css('border', '#e66262 1px solid');
+                  valid = false;
+              }
+              if (!userEmail.match(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/))
+              {
+                  $("#userEmail-info").html("Invalid Email Address.");
+                  $("#userEmail").css('border', '#e66262 1px solid');
+                  valid = false;
+              }
+  
+              if (content == "") {
+                  $("#userMessage-info").html("Required.");
+                  $("#content").css('border', '#e66262 1px solid');
+                  valid = false;
+              }
+              return valid;
+          }
+  </script>
+
+
+<style>
+        html {
+  scroll-behavior: smooth;
+        }</style>
+  
+<script>
+
+  $(document).ready(function(){
+ setTimeout(function(){  $("#myModal").modal('show'); }, 5000);
+  });
+
+</script>
+
+<!-- Optional theme -->
+<link rel="icon" 
+      type="image/png" 
+      href="./img/WhatsApp%20Image%202020-05-26%20at%2011.23.39%20AM.jpeg" style="border-radius: 10px 10px 10px 10px" />
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+
+   
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Page Container -->
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header" >
+              
+              <h4 class="modal-title">After viewing this website<br><b> please leave a feedback</b></h4>
+          </div>
+          <div class="modal-body">
+              <form>
+                  <div class="form-group">
+                    <input type="button" data-dismiss="modal" class="btn btn-success" value="Agree" onClick="window.location='#contact'" />
+                  <button type="submit" data-dismiss="modal" class="btn btn-secondary">NO</button>
+              </form>
+            </div>
+          </div>
+          </div>
+          </div>
+          </div>
+
+
+
+
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+    
+      <div class="w3-white w3-text-grey w3-card-4">
+        <div class="w3-display-container">
+          <img src="./img/WhatsApp%20Image%202020-05-26%20at%2011.23.39%20AM.jpeg" style="width:100%" alt="Avatar">
+            <nav class="navbar navbar-light" style="background-color: #e3f2fd; width:100%">
+  <a class="navbar-brand" href="#about"> <span>Shashidar Vemula</span></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a   class="nav-link" href="#about"> <img src="./img/money.png" height="20px" width="20px" alt="Avatar">&nbsp;&nbsp;&nbsp;&nbsp; About <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" >
+      <a   class="nav-link" href="#skills" ><img src="./img/personality.png" height="20px" width="20px" alt="Avatar">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Skills</a> 
+      </li>
+        <li class="nav-item">
+        <a  class="nav-link" href="#experience"><img src="./img/science.png" height="20px" width="20px" alt="Avatar">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Experience</a>
+      </li>
+        <li class="nav-item">
+        <a  class="nav-link" href="#education"><img src="./img/student.png" height="20px" width="20px" alt="Avatar">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Education</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+       <!--Navbar-->
+
+    
+          </div>
+            <br>
+            <br>
+          </div>
+        <div class="w3-container" id="about">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Web Developer</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>India ,Hyderabad</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>vemulashashidar82@gmail.com</p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>9542278342</p>
+          <hr>
+
+          <p class="w3-large" id="skills"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Skills</b></p>
+          <p>Core Java</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">90%</div>
+          </div>
+          <p>C#</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+              <div class="w3-center w3-text-white">80%</div>
+            </div>
+          </div>
+          <p>HTML ,CSS ,JS</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">75%</div>
+          </div>
+          <p>Angular JS</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">50%</div>
+          </div>
+          <br>
+            <hr>
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>Languages</b></p>
+          <p>English</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:80%;text-align: center">80%</div>
+          </div>
+          <p>Telugu</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:100%;text-align: center">100%</div>
+          </div>
+          <p>Hindi</p>
+          <div class="w3-light-grey w3-round-xlarge">
+            <div class="w3-round-xlarge w3-teal" style="height:24px;width:80%;text-align: center">80%</div>
+          </div>
+          <br>
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+         <div class="w3-container w3-card w3-white w3-margin-bottom" id="experience">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Software Engineer / ValueMomentum.</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>December  2020 - <span class="w3-tag w3-teal w3-round">Current</span></h6>
+            <p>currently working on below Tools and other expertise.</p>
+            
+            <b>SmokeTesting,FunctionalAutomation,<br>Regression.</b>
+            <p></p>
+            <p>(ProjectManagementTool)</p>
+            <p>
+            <b>Azure Devops</b></p>
+            <p>(Automation Tools)</p>
+            <b> Automation testing Using <b>Selenium Web Driver</b></b>
+            <p><B>ExtentReports,ScriptFixing,NUnit,Postman,<br>Exeption Handling,Frameworks etc.</B></p>
+          <hr>
+        
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Selenium Testing/ Sudaksha.</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>January 2020 - June 2020 </h6>
+             <p>completed internship in sudaksha through valuemomentum company which got me to learn.</p>
+            <p>
+                (Frontend)</p>
+                <b><p>html,css,js,bootsrap</p></b><p> (Backend)</p><p> <b>c#,core java,TypeScript,JavaScript,AngularJS</b></p>
+            <p>(Project Management Tool)</p>
+            <p><b>Jira Software.</b></p>
+            <p>(Testing Tools)</p>
+            <b>Manual testing,</b><b> Automation testing Using <b>Selenium Web Driver</b></b>
+            <p><B>TestNG,Frameworks,CrossBrowserTesting</B></p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Core Java / Manac info tech.</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>April 2017 - May 2017</h6>
+          <p>OOPS concepts (Data Abstraction, Encapsulation, Inheritance, Polymorphism)
+<br>Basic Java constructs 
+<br>Collection framework
+       <br>JDBC (Java Database Connectivity)</p><br>
+        </div>
+      </div>
+
+      <div  class="w3-container w3-card w3-white" id="education">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Web Development</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Forever</h6>
+          <p>Web Development! All I need to know in one place</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Bachelor of Technology</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2016 - 2020</h6>
+          <p>St.PetersEngineering College</p>
+             <p>Percentage</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:70%">70%</div>
+          </div>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Intermediate</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2014 - 2016</h6>
+          <p>Narayana Intermediate College</p>
+            <p>Percentage</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:87%">87%</div>
+          </div>
+            <hr>
+        </div>
+          <div class="w3-container">
+          <h5 class="w3-opacity"><b>SSC</b></h5>
+          <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2014</h6>
+          <p>Abhyudaya High School</p>
+            <p>Percentage</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:78%">78%</div>
+          </div>
+              <br>
+        </div>
+      </div>
+<br>
+    <div class="w3-container w3-card w3-white w3-margin-bottom" id="github">
+          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i><img src="./img/GitHub-Logo.png" height="20px" width="80px" alt="Avatar"></h2>
+          <div class="w3-container">
+            <h5><b><u>Java Projects</u></b></h5>
+            <h5 class="w3-opacity"><b ><a href="https://github.com/vemulashashidar/KeyAggregateSearchableEncryption" target="_blank">Key Aggregate Searchable Encryption Using Cloud Storage(KASE).</a></b></h5>
+            <h5 class="w3-opacity"><b ><a href="https://github.com/vemulashashidar/BusReservationSystem" target="_blank">Bus Reservation System.</a></b></h5>            
+            <h5 class="w3-opacity"><b ><a href="https://github.com/vemulashashidar/StudentManagement" target="_blank">Student Data Management.</a></b></h5>
+            <h5 class="w3-opacity"><b ><a href="https://github.com/vemulashashidar/ProductManagementSystem" target="_blank">Product Data Management</a></b></h5>
+            <h5><b><u>Selenium Web Driver</u></b></h5>
+            <h5 class="w3-opacity"><b ><a href="https://github.com/vemulashashidar/OrangeHrm" target="_blank">OrangeHrm</a></b></h5>
+          <br>
+          </div>
+          </div>
+  <div  class="w3-container w3-card w3-white w3-margin-bottom" id="contact"  id="contactform">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>FeedBack</h2>
+        <div class="form-container" style="  background: #ebeae7;
+        border: #e2ddd2 1px solid;
+        padding: 20px;
+        border-radius: 2px;">
+          <form class="cont" name="frmContact" id="" frmContact="" method="post"
+              action="index.php" enctype="multipart/form-data"
+              onsubmit="return validateContactForm()">
+      
+              <div class="input-row"style=" margin-bottom: 20px;">
+                  <label style="padding-top: 20px; color: #75726c;">Name</label> <span style="font: Arial;
+    font-size: small;
+    text-decoration: none;"
+                      id="userName-info" class="info"></span><br /> <input style="width: 100%;
+                      border-radius: 2px;
+                      padding: 10px;
+                      border: #e0dfdf 1px solid;
+                      box-sizing: border-box;
+                      margin-top: 2px;"
+                      type="text" class="input-field" name="userName"
+                      id="userName" />
+              </div>
+              <div class="input-row"style=" margin-bottom: 20px;">
+                  <label style="padding-top: 20px; color: #75726c;" >Email</label> <span style="font: Arial;
+                  font-size: small;
+                  text-decoration: none;" id="userEmail-info"
+                      class="info"></span><br /> <input type="text" style="width: 100%;
+                      border-radius: 2px;
+                      padding: 10px;
+                      border: #e0dfdf 1px solid;
+                      box-sizing: border-box;
+                      margin-top: 2px;"
+                      class="input-field" name="userEmail" id="userEmail" />
+              </div>
+              <div class="input-row"style=" margin-bottom: 20px;">
+                  <label style="padding-top: 20px; color: #75726c;" >Message</label> <span style="font: Arial;
+                  font-size: small;
+                  text-decoration: none;" id="userEmail-info"id="userMessage-info"
+                      class="info"></span><br />
+                  <textarea name="content" id="content" style="width: 100%;
+                  border-radius: 2px;
+                  padding: 10px;
+                  border: #e0dfdf 1px solid;
+                  box-sizing: border-box;
+                  margin-top: 2px;"
+                      class="input-field" cols="60" rows="6"></textarea>
+              </div>
+              <div>
+                  <input id="hide" type="submit" name="send" onClick="fun1(1)" class="btn-submit"
+                      value="Send" style="padding: 10px 60px;
+                  background: #009688!important;
+                  border: #8c8880 1px solid;
+                  color: #ffffff;
+                  font-size: 0.9em;
+                  border-radius: 2px;
+                  cursor: pointer;"  />
+      
+                  <div id="statusMessage"> 
+                          <?php
+                          if (! empty($message)) {
+                              ?>
+                              <p class='<?php echo $type; ?>Message'><?php echo $message; ?></p>
+                          <?php
+                          }
+                          ?>
+                      </div>
+              </div>
+          </form>
+      </div>
+      <br>
+      </div>
+      </div>
+    </div>
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+    
+    
+
+
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+  <p>Find me on social media.</p>
+  <a href="https://www.facebook.com/vemula.shashidar/" target="_blank" class="fa fa-facebook-official w3-hover-opacity"></a>
+  <a href="https://www.instagram.com/shashidarvemula/" target="_blank" class="fa fa-instagram w3-hover-opacity"></a>
+  <a  href="https://twitter.com/explore" target="_blank"  class="fa fa-twitter w3-hover-opacity"></a>
+  <a  href="https://www.linkedin.com/in/vemula-shashidar-010021191/" target="_blank" class="fa fa-linkedin w3-hover-opacity"></a>
+  <p>&copy; 2020 vemula shashidar<p>
+    </footer>
+
+</body>
+</html>
